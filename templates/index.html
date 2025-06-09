@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2>Fresh Groceries Delivered to Your Doorstep</h2>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for product in products %}
+    <div class="col">
+        <div class="card product-card h-100">
+            <img src="{{ url_for('static', filename='images/' + product.image) }}" 
+                 class="card-img-top" 
+                 alt="{{ product.name }}"
+                 style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">
+                    <strong>${{ "%.2f"|format(product.price) }}</strong><br>
+                    <small class="text-muted">{{ product.category }}</small>
+                </p>
+            </div>
+            <div class="card-footer bg-white">
+                <a href="/add_to_cart/{{ product.id }}" class="btn btn-success w-100">
+                    Add to Cart
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
