@@ -18,7 +18,7 @@ A full-stack web application for an Online Grocery Store, inspired by platforms 
 🔧 Backend built using Flask (Python)
 
 🛠️ Tech Stack
-Layer	Technologies
+Layer	Technologies:
 Frontend	HTML, CSS, JavaScript
 Backend	Python, Flask
 Database	Oracle 10g
